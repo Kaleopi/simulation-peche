@@ -1,0 +1,110 @@
+Pêche à la ligne
+
+ncurses : 
+    eau:carré bleu à dimension variable 
+    poisson:carré jaune avec la valeur dedans déplacement de case en case
+
+    lancement de la cane à partir d'un clique souris 
+        ->si poisson passe sur case (carré ou asterisk) -> poisson attraper
+        -> il faut que le pecheur releve la cane
+            -> sinon poisson reste bloquer 
+                ->timer avant que le poisson s'échappe
+        joueur ne peut poser sa ligne que toute les 3 secondes
+            ->possibilité de la mettre au même endroit que l'autre
+            -> chaque joueur ne voie pas le flotteur de l'autre
+            -> le poisson choisit aleatoirement entre les deux lignes
+    
+        ->chaque poisson 
+            ->exp
+            ->gold
+            ->fuit à la pose de la cane 3/3 (autour)
+            ->fuite pdt 5 tour et ne peuvent pas etre attrapé
+                ->peuvent etre dynamité
+
+    ->coup spéciaux
+                ->pneu :*150
+                    ->poisson fuit le pneu
+                    ->bloque pdt 3 seconde (carré noir invis pour l'adv)
+                    ->joueur piegeur +100pts
+
+                ->la dynamite :*200
+                    ->carré rouge invisible
+                    ->explosion 5/5 kill fish+pts 
+                    -> si ligne adv explose sa mere 3secondes
+                
+                ->requin:*300
+                    ->carré vert mais jaune pour l'adversaire
+                    ->si le joeur peche ce poisson -100pts
+                ->mode furtif:*500
+                    ->ne fais plus fuir les poissons à la pose
+
+    -> un poisson / case 
+    -> un objet par case sinon remplace
+    ->génération des poissons carré jaune valeur 1,2,3
+            ->1:*100
+            ->2:*200
+            ->3:*300 POIREAUS
+        -> noté sur le poisson
+
+        -> win à 15 pts
+
+------------------------------------------------------------------------------------------
+    client.c -> partie joueur
+            ->adresse IP
+            ->UDP serveur
+    serveur.c ->met en relation les client
+            ->adresse IP 
+            ->port UDP ->attend les clients
+            ->dimension étang
+            ->en attente de requete qu'il met en file d'attente
+                ->si il y a 2 client connecté ou+ crée une partie avec un port TCP envoyé au client
+---------------------------------------------------------------------------------------------
+    chaque poisson ->thread specifique
+        ATTENTION :*
+            ->ressource
+            ->synchro
+            ->parallelisme
+
+        -> thread execution et suspension : pertinence
+        -> accès concurrent bien gerer
+        -> gaffe dead locks
+        -> rendre l'affichage de la simulation plus pertinent 
+        -> permettre l'exec minimallement parallele ??
+        ->lorsque le thread est relacher est ce que c'est bien gérer
+------------------------------------------------------------------------------------------------
+RAPPORT
+        ->probleme
+        ->solution ->proposé ou implémenter
+------------------------------------------------------------------------------------------------
+NOTATION
+Le code n’étant pas suffisant en lui-même, les parties non expliquées dans le rapport ne seront pas
+prises en compte dans la notation. De même, la maîtrise du langage C et de la compilation séparée
+seront pris en compte. Pour les étudiants ne suivant pas INFO0601, le deuxième joueur correspond
+à l’ordinateur qui jouera de manière aléatoire : il n’est pas nécessaire d’implémenter de serveur ni de
+connexions réseau.
+
+        ->601:*
+            ->gestion des connections réseaux(respect protocole et messages)
+            ->appels systèmes vérifiés
+            ->gestion des erreur
+
+        ->604:*
+            ->
+
+        ->schema 
+        ->readme.txt
+        ->indent
+        ->makefile et make clean
+        ->description des algos et pk
+        ->soutenance présentation 20 min 
+        ->fonctionnalité à expliquer
+        ->retirer les .o
+        Projet_Nom1_Nom2
+◦
+Rapport_Nom1_Nom2.pdf
+◦
+Code
+
+    -Fichiers sources
+
+    -makefile

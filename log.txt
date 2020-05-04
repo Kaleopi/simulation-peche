@@ -1,0 +1,177 @@
+==7629== Memcheck, a memory error detector
+==7629== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7629== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==7629== Command: ./serveur 12000
+==7629== 
+==7629== Conditional jump or move depends on uninitialised value(s)
+==7629==    at 0x10B53E: generer_poisson (fonctions.c:676)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Invalid write of size 4
+==7629==    at 0x10B6A8: creer_poisson (fonctions.c:647)
+==7629==    by 0x10B6A8: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Invalid write of size 4
+==7629==    at 0x10B5D6: creer_poisson (fonctions.c:655)
+==7629==    by 0x10B5D6: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c10 is 16 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Invalid write of size 4
+==7629==    at 0x10B5DA: creer_poisson (fonctions.c:656)
+==7629==    by 0x10B5DA: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c14 is 20 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Invalid write of size 4
+==7629==    at 0x10B5E3: creer_poisson (fonctions.c:654)
+==7629==    by 0x10B5E3: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c00 is 0 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Thread 11:
+==7629== Invalid read of size 4
+==7629==    at 0x10A1A2: routine_poisson (fonctions.c:576)
+==7629==    by 0x52916DA: start_thread (pthread_create.c:463)
+==7629==    by 0x55CA88E: clone (clone.S:95)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Invalid read of size 4
+==7629==    at 0x10A258: routine_poisson (fonctions.c:562)
+==7629==    by 0x52916DA: start_thread (pthread_create.c:463)
+==7629==    by 0x55CA88E: clone (clone.S:95)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== Invalid read of size 4
+==7629==    at 0x10A078: routine_poisson (fonctions.c:590)
+==7629==    by 0x52916DA: start_thread (pthread_create.c:463)
+==7629==    by 0x55CA88E: clone (clone.S:95)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+Serveur : erreur select: Connection reset by peer
+==7629== 
+==7629== HEAP SUMMARY:
+==7629==     in use at exit: 26,720 bytes in 77 blocks
+==7629==   total heap usage: 78 allocs, 1 frees, 27,744 bytes allocated
+==7629== 
+==7629== LEAK SUMMARY:
+==7629==    definitely lost: 13,840 bytes in 53 blocks
+==7629==    indirectly lost: 0 bytes in 0 blocks
+==7629==      possibly lost: 3,040 bytes in 11 blocks
+==7629==    still reachable: 9,840 bytes in 13 blocks
+==7629==         suppressed: 0 bytes in 0 blocks
+==7629== Rerun with --leak-check=full to see details of leaked memory
+==7629== 
+==7629== Use --track-origins=yes to see where uninitialised values come from
+==7629== ERROR SUMMARY: 47 errors from 8 contexts (suppressed: 0 from 0)
+==7629== 
+==7629== 1 errors in context 1 of 8:
+==7629== Thread 1:
+==7629== Invalid write of size 4
+==7629==    at 0x10B5E3: creer_poisson (fonctions.c:654)
+==7629==    by 0x10B5E3: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c00 is 0 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 1 errors in context 2 of 8:
+==7629== Invalid write of size 4
+==7629==    at 0x10B5DA: creer_poisson (fonctions.c:656)
+==7629==    by 0x10B5DA: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c14 is 20 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 1 errors in context 3 of 8:
+==7629== Invalid write of size 4
+==7629==    at 0x10B5D6: creer_poisson (fonctions.c:655)
+==7629==    by 0x10B5D6: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c10 is 16 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 1 errors in context 4 of 8:
+==7629== Invalid write of size 4
+==7629==    at 0x10B6A8: creer_poisson (fonctions.c:647)
+==7629==    by 0x10B6A8: generer_poisson (fonctions.c:683)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 7 errors in context 5 of 8:
+==7629== Thread 11:
+==7629== Invalid read of size 4
+==7629==    at 0x10A078: routine_poisson (fonctions.c:590)
+==7629==    by 0x52916DA: start_thread (pthread_create.c:463)
+==7629==    by 0x55CA88E: clone (clone.S:95)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 7 errors in context 6 of 8:
+==7629== Thread 1:
+==7629== Conditional jump or move depends on uninitialised value(s)
+==7629==    at 0x10B53E: generer_poisson (fonctions.c:676)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 9 errors in context 7 of 8:
+==7629== Thread 11:
+==7629== Invalid read of size 4
+==7629==    at 0x10A258: routine_poisson (fonctions.c:562)
+==7629==    by 0x52916DA: start_thread (pthread_create.c:463)
+==7629==    by 0x55CA88E: clone (clone.S:95)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== 
+==7629== 20 errors in context 8 of 8:
+==7629== Invalid read of size 4
+==7629==    at 0x10A1A2: routine_poisson (fonctions.c:576)
+==7629==    by 0x52916DA: start_thread (pthread_create.c:463)
+==7629==    by 0x55CA88E: clone (clone.S:95)
+==7629==  Address 0x5aa0c08 is 8 bytes after a block of size 320 alloc'd
+==7629==    at 0x4C2FE96: malloc (vg_replace_malloc.c:309)
+==7629==    by 0x10B48A: generer_poisson (fonctions.c:669)
+==7629==    by 0x109B44: main (serveur.c:179)
+==7629== 
+==7629== ERROR SUMMARY: 47 errors from 8 contexts (suppressed: 0 from 0)
